@@ -1,0 +1,13 @@
+build
+locale
+dist
+StoqInstaller.exe
+.wine-build-stoq-prefix
+data/pixmaps/stoq.ico
+_trial_temp
+TAGS
+tags
+MANIFEST
+_build
+_static
+_templates
