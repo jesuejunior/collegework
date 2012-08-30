@@ -11,9 +11,6 @@ class HttpServer {
 	public static void main(String[] args) throws IOException {
 		Helper helper = new Helper();
 		String clientData;
-		String path = null;
-		String protocol = null;
-		String call = null;
 		ServerSocket welcomeSocket = new ServerSocket(8001);
 
 		while (true) {
@@ -28,7 +25,7 @@ class HttpServer {
 				if(broken.get(1).equals("/")){
 					System.out.println(broken.get(1));
 					clientOut.writeBytes(helper.response("http200"));
-					welcomeSocket.close();
+					connectionSocket.close();
 				}else{
 					clientOut.writeBytes(helper.response("http404"));
 				}
@@ -37,7 +34,6 @@ class HttpServer {
 				System.out.println(clientData);
 			}
 			
-		System.out.println("falhou");
 		}
 		// welcomeSocket.close();
 
