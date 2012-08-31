@@ -12,12 +12,12 @@ class HttpServer {
 	public static void main(String[] args) throws IOException {
 		Helper helper = new Helper();
 		String clientData;
-		ServerSocket welcomeSocket = new ServerSocket(8001);
+		ServerSocket startSocket = new ServerSocket(8001);
 		final String END_LINE = "\r\n";
 
 		
 		while (true) {
-			Socket connectionSocket = welcomeSocket.accept();
+			Socket connectionSocket = startSocket.accept();
 			BufferedReader clientIn = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
 			DataOutputStream clientOut = new DataOutputStream(connectionSocket.getOutputStream());
 			clientData = clientIn.readLine();
@@ -30,11 +30,11 @@ class HttpServer {
 					}
 					clientOut.writeBytes(helper.response("http1200"));
 					clientOut.writeBytes(helper.response("server"));
-					clientOut.writeBytes("Date: " + helper.getServerTime());
+					clientOut.writeBytes("Date: " + helper.getServerTime() + END_LINE);
 					if (broken.get(2).equals("HTTP/1.0")){
-						clientOut.writeBytes("Connection: close");
+						clientOut.writeBytes("Connection: close" + END_LINE);
 					}
-					clientOut.writeBytes("Content-Length: " + clientOut.size());
+					clientOut.writeBytes("Content-Length: " + clientOut.size() + END_LINE);
 					connectionSocket.close();
 				}else{
 					clientOut.writeBytes(helper.response("http404"));
