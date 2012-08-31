@@ -3,9 +3,9 @@ package start;
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 
+
+import utils.DoFile;
 import utils.Helper;
 
 class HttpServer {
@@ -14,7 +14,7 @@ class HttpServer {
 		String clientData;
 		ServerSocket startSocket = new ServerSocket(8001);
 		final String END_LINE = "\r\n";
-
+		String index = DoFile.read("static/index.html");
 		
 		while (true) {
 			Socket connectionSocket = startSocket.accept();
@@ -24,7 +24,7 @@ class HttpServer {
 			
 			if (clientData != null && (clientData.startsWith("GET") || clientData.startsWith("POST"))) {
 				ArrayList<String> broken = smash(clientData);
-				if(broken.get(1).equals("/")){
+				if(broken.get(1).equals("/") || broken.get(1).equals("/index.html") || broken.get(1).equals("index.html")){
 					if (broken.get(2).equals("HTTP/1.0")){
 						clientOut.writeBytes(helper.response("http0200"));
 					}
@@ -35,6 +35,8 @@ class HttpServer {
 						clientOut.writeBytes("Connection: close" + END_LINE);
 					}
 					clientOut.writeBytes("Content-Length: " + clientOut.size() + END_LINE);
+					clientOut.writeBytes(END_LINE);
+					clientOut.writeBytes(index);
 					connectionSocket.close();
 				}else{
 					clientOut.writeBytes(helper.response("http404"));
