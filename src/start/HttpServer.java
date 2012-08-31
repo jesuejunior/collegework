@@ -3,6 +3,7 @@ package start;
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 import utils.Helper;
@@ -12,33 +13,32 @@ class HttpServer {
 		Helper helper = new Helper();
 		String clientData;
 		ServerSocket welcomeSocket = new ServerSocket(8001);
+		final String END_LINE = "\r\n";
 
+		
 		while (true) {
 			Socket connectionSocket = welcomeSocket.accept();
-			BufferedReader clientIn = new BufferedReader(new InputStreamReader(	connectionSocket.getInputStream()));
+			BufferedReader clientIn = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
 			DataOutputStream clientOut = new DataOutputStream(connectionSocket.getOutputStream());
 			clientData = clientIn.readLine();
-			//clientOut.size();
+			
 			if (clientData != null && clientData.startsWith("GET")) {
-				System.out.println(clientData);
 				ArrayList<String> broken = smash(clientData);
 				if(broken.get(1).equals("/")){
-					System.out.println(broken.get(1));
 					clientOut.writeBytes(helper.response("http200"));
+					clientOut.writeBytes(helper.response("server"));
+					clientOut.writeBytes("Date: " + helper.getServerTime());
+					clientOut.writeBytes("Content-Length: " + clientOut.size());
 					connectionSocket.close();
 				}else{
 					clientOut.writeBytes(helper.response("http404"));
 				}
-				
 			} else if (clientData != null && clientData.startsWith("POST")) {
-				System.out.println(clientData);
+				
 			}
 			
 		}
-		// welcomeSocket.close();
-
-		// if(){
-		// }
+		
 	}
 
 	public static ArrayList<String> smash(String input) {
