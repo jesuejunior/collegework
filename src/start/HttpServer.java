@@ -22,20 +22,25 @@ class HttpServer {
 			DataOutputStream clientOut = new DataOutputStream(connectionSocket.getOutputStream());
 			clientData = clientIn.readLine();
 			
-			if (clientData != null && clientData.startsWith("GET")) {
+			if (clientData != null && (clientData.startsWith("GET") || clientData.startsWith("POST"))) {
 				ArrayList<String> broken = smash(clientData);
 				if(broken.get(1).equals("/")){
-					clientOut.writeBytes(helper.response("http200"));
+					if (broken.get(2).equals("HTTP/1.0")){
+						clientOut.writeBytes(helper.response("http0200"));
+					}
+					clientOut.writeBytes(helper.response("http1200"));
 					clientOut.writeBytes(helper.response("server"));
 					clientOut.writeBytes("Date: " + helper.getServerTime());
+					if (broken.get(2).equals("HTTP/1.0")){
+						clientOut.writeBytes("Connection: close");
+					}
 					clientOut.writeBytes("Content-Length: " + clientOut.size());
 					connectionSocket.close();
 				}else{
 					clientOut.writeBytes(helper.response("http404"));
+					connectionSocket.close();
 				}
-			} else if (clientData != null && clientData.startsWith("POST")) {
-				
-			}
+			} 
 			
 		}
 		

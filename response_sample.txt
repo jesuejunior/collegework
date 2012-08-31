@@ -1,0 +1,22 @@
+GET / HTTP/1.0
+
+HTTP/1.0 200 OK
+Date: Fri, 31 Aug 2012 02:51:06 GMT
+Server: Apache/2.2.22 (Unix) PHP/5.4.3 mod_ssl/2.2.22 OpenSSL/1.0.1b DAV/2
+X-Powered-By: PHP/5.4.3
+X-Pingback: http://jesuejunior.com/xmlrpc.php
+Vary: Accept-Encoding
+Connection: close
+Content-Type: text/html; charset=UTF-8
+
+GET / HTTP/1.1
+
+HTTP/1.1 200 OK
+Date: Fri, 31 Aug 2012 02:52:29 GMT
+Server: Apache/2.2.22 (Unix) PHP/5.4.3 mod_ssl/2.2.22 OpenSSL/1.0.1b DAV/2
+X-Powered-By: PHP/5.4.3
+X-Pingback: http://jesuejunior.com/xmlrpc.php
+Vary: Accept-Encoding
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
