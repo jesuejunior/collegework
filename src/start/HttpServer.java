@@ -15,6 +15,7 @@ class HttpServer {
 		ServerSocket startSocket = new ServerSocket(8001);
 		final String END_LINE = "\r\n";
 		String index = DoFile.read("static/index.html");
+		String notFound = DoFile.read("static/404.html");
 		
 		while (true) {
 			Socket connectionSocket = startSocket.accept();
@@ -40,6 +41,7 @@ class HttpServer {
 					connectionSocket.close();
 				}else{
 					clientOut.writeBytes(helper.response("http404"));
+					clientOut.writeBytes(notFound);
 					connectionSocket.close();
 				}
 			} 
