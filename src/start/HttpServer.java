@@ -37,6 +37,7 @@ class HttpServer {
 					}
 					clientOut.writeBytes("Content-Length: " + clientOut.size() + END_LINE);
 					clientOut.writeBytes(END_LINE);
+					clientOut.writeBytes(END_LINE);
 					clientOut.writeBytes(index);
 					connectionSocket.close();
 				}else{
