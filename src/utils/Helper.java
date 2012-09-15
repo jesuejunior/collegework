@@ -10,7 +10,7 @@ public class Helper {
 	private static final HashMap<String, String> MAP_RESPONSE = new HashMap<String, String>();
 	static {
 		MAP_RESPONSE.put("GET", "GET" + "\r\n");
-		MAP_RESPONSE.put("server", "Server: SocketHard by Jesue Junior" + "\r\n");
+		MAP_RESPONSE.put("server", "Server: SocketHard by Jesue Junior and Leonardo Maia" + "\r\n");
 		MAP_RESPONSE.put("http1200", "HTTP/1.1 200 OK" + "\r\n");
 		MAP_RESPONSE.put("http0200", "HTTP/1.0 200 OK" + "\r\n");
 		MAP_RESPONSE.put("http404", "HTTP/1.1 404 Not Found" + "\r\n");

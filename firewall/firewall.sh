@@ -2,7 +2,7 @@
 
 OPEN_PORTS="22 80 443 8001"
 
-IPTABLES=/sbin/iptables
+IPTABLES=/usr/sbin/iptables
 
 # External link Iface
 NET_IFACE=eth0
@@ -35,8 +35,6 @@ _offline() {
     exit 0
 }
 
-
-
 _drop(){
   #echo -n "Dropping ALL packets..."
   $IPTABLES -P INPUT DROP
@@ -44,9 +42,7 @@ _drop(){
   $IPTABLES -P FORWARD DROP
 }
 
-
 _start(){  
-  
 
    if [ -z ${NET_IP} ];then
      _offline
@@ -73,9 +69,18 @@ _start(){
   ${IPTABLES} -A INPUT -i ${NET_IFACE} -s ${LO_IP} -d ${LO_IP} -j LOG --log-prefix "IP Spoofing: "
   ${IPTABLES} -A INPUT -i ${NET_IFACE} -s ${LO_IP} -d ${LO_IP} -j DROP
 
-  ${IPTABLES} -A INPUT -m state –state ESTABLISHED,RELATED -j ACCEPT
+  #Hardcore
+  ${IPTABLES} -A INPUT -i ${NET_IFACE} -m state –state ESTABLISHED,RELATED -j ACCEPT
   ${IPTABLES} -N LOGDROP
+  ${IPTABLES} -A port-scan -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit --limit 1/s -j RETURN
+  ${IPTABLES} -A port-scan -j DROP
 
+  #Load Balance
+  ${IPTABLES} -A PREROUTING -i ${NET_IFACE} -p tcp --dport 8001 -m state --state NEW -m nth --counter 0 --every 4 --packet 0 -j DNAT --to-destination 172.31.13.34:8001
+  ${IPTABLES} -A PREROUTING -i ${NET_IFACE} -p tcp --dport 8001 -m state --state NEW -m nth --counter 0 --every 4 --packet 1 -j DNAT --to-destination 172.31.13.34:8001
+  ${IPTABLES} -A PREROUTING -i ${NET_IFACE} -p tcp --dport 8001 -m state --state NEW -m nth --counter 0 --every 4 --packet 2 -j DNAT --to-destination 172.31.13.34:8001
+  ${IPTABLES} -A PREROUTING -i ${NET_IFACE} -p tcp --dport 8001 -m state --state NEW -m nth --counter 0 --every 4 --packet 3 -j DNAT --to-destination 172.31.13.34:8001
+  
 
   #Pacotes SYN FIN ao mesmo tempo
   $IPTABLES -A INPUT -i $NET_IFACE -p tcp --tcp-flags SYN,FIN SYN,FIN -j LOG --log-prefix "SYN+FIN: "
