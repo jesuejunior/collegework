@@ -4,24 +4,25 @@
     <title>.::Six Games::. Sua loja de jogos!</title>
     <link rel="stylesheet" type="text/css" href="static/css/six.css" />
     <script src="static/js/jquery-1.7.min.js" type="text/javascript"></script>
+    <script src="static/js/modernizr.js" type="text/javascript"></script>
 </head>
 <body>
 
 <header id="six_header">
-<div class="user_area">
+<div class="container">
     <div>
-        <nav>
+        <div class="user_line">
             <ul>
                 <li><a href="#subscribe" id="subscribe_button" class="btn btn-success">Cadastre-se</a></li>
                 <li class="last">
                     <a href="#login" id="login_button" class="btn btn-success">Login</a>
                 </li>
             </ul>
-        </nav>
+        </div>
     </div>
 </div>
 <div>
-    <div>
+    <div class="page-header">
         <div>
             <a href="/" id="sixgames" title="Six Games"></a>
         </div>
@@ -103,9 +104,7 @@
 
 
 <footer>
-    <address>
-
-    </address>
+    Contato
 
 </footer>
 <script>
@@ -116,7 +115,7 @@
             $(this).find("ul:first").slideDown("slow");
 
         }, function(){
-            $(this).find("ul:first").slideToggle("slow");
+            $(this).find("ul:first").fadeOut("slow");
             });
         });
 </script>
