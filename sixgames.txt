@@ -1,0 +1,1 @@
+Site feito em HTML, CSS e Javascript, é um e-commerce de venda de jogos.
