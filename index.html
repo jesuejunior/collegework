@@ -4,8 +4,9 @@
     <title>.::Six Games::. Sua loja de jogos!</title>
     <link rel="stylesheet" type="text/css" href="static/css/six.css" />
     <script src="static/js/jquery-1.7.min.js" type="text/javascript"></script>
-    <script src="static/js/six.js" type="text/javascript"></script>
     <script src="static/js/modernizr.js" type="text/javascript"></script>
+    <script src="static/js/underscore-min.js" type="text/javascript"></script>
+    <script src="static/js/six.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -35,70 +36,22 @@
         </div>
     </div>
 </div>
-<nav id="menu">
+
+<nav id="menu"></nav>
+<script type="text/template" id="template">
     <ul>
-    <li>
-        <a href="#" title="PS3">PS3</a>
-        <ul>
-            <li><a href="#" title="Acao">Acao</a> </li>
-            <li><a href="#" title="Aventura">Aventura</a></li>
-            <li><a href="#" title="Corrida">Corrida</a></li>
-            <li><a href="#" title="Shooter">Shooter</a></li>
-            <li><a href="#" title="Luta">Luta</a></li>
-            <li><a href="#" title="RPG">RPG</a></li>
-            <li class="last"><a href="#" title="Esportes">Esportes</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="#" title="XBOX 360">XBOX 360</a>
-        <ul>
-            <li><a href="#" title="Acao">Acao</a> </li>
-            <li><a href="#" title="Aventura">Aventura</a></li>
-            <li><a href="#" title="Corrida">Corrida</a></li>
-            <li><a href="#" title="Shooter">Shooter</a></li>
-            <li><a href="#" title="Luta">Luta</a></li>
-            <li><a href="#" title="RPG">RPG</a></li>
-            <li class="last"><a href="#" title="Esportes">Esportes</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="#" title="WII">WII</a>
-        <ul>
-            <li><a href="#" title="Acao">Acao</a> </li>
-            <li><a href="#" title="Aventura">Aventura</a></li>
-            <li><a href="#" title="Corrida">Corrida</a></li>
-            <li><a href="#" title="Shooter">Shooter</a></li>
-            <li><a href="#" title="Luta">Luta</a></li>
-            <li><a href="#" title="RPG">RPG</a></li>
-            <li class="last"><a href="#" title="Esportes">Esportes</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="#" title="PS VITA">PS VITA</a>
-        <ul>
-            <li><a href="#" title="Acao">Acao</a> </li>
-            <li><a href="#" title="Aventura">Aventura</a></li>
-            <li><a href="#" title="Corrida">Corrida</a></li>
-            <li><a href="#" title="Shooter">Shooter</a></li>
-            <li><a href="#" title="Luta">Luta</a></li>
-            <li><a href="#" title="RPG">RPG</a></li>
-            <li class="last"><a href="#" title="Esportes">Esportes</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="#" title="PC">PC</a>
-        <ul>
-            <li><a href="#" title="Acao">Acao</a> </li>
-            <li><a href="#" title="Aventura">Aventura</a></li>
-            <li><a href="#" title="Corrida">Corrida</a></li>
-            <li><a href="#" title="Shooter">Shooter</a></li>
-            <li><a href="#" title="Luta">Luta</a></li>
-            <li><a href="#" title="RPG">RPG</a></li>
-            <li class="last"><a href="#" title="Esportes">Esportes</a></li>
-        </ul>
-    </li>
+    <% _.each(listas, function(lista) { %>
+
+        <li><a href="#" title="<%= lista.nome %>"><%= lista.nome %></a>
+            <ul>
+            <% _.each(lista.items, function(item, index, list) { %>
+                <li <% if(index == list.length-1) { print ("class='last'"); } %> ><a href="<%= item.link %>" class="ieie" title="<%= item.nome %>"><%= item.nome %></a></li>
+            <% }); %>
+            </ul>
+        </li>
+    <% }); %>
     </ul>
-</nav>
+</script>
 
 </header>
 <div id="content">
@@ -110,28 +63,6 @@
 
 <footer>
     Contato
-
 </footer>
-<script>
-    $(document).ready(function(){
-        var plataforma;
-        var categoria;
-
-        $("ul li ul").hide();
-        $("ul li").click(function(){
-            alert(plataforma+categoria);
-        });
-        $("ul li").hover(function(){
-
-            $(this).find("ul:first").slideDown("slow");
-            plataforma = $(this).parents()[1].childNodes[1].text;
-            if (plataforma != undefined){
-                categoria = $(this).text();
-            }
-        }, function(){
-            $(this).find("ul:first").fadeOut("slow");
-        });
-    });
-</script>
 </body>
 </html>
