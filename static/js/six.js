@@ -6,12 +6,16 @@
  * To change this template use File | Settings | File Templates.
  */
 
-function ajax_link(){
-    link = this.href;
+function open_ajax_link(link){
     $.get(link, function(data){
         $("#content .container").html(data);
     });
     return false;
+}
+
+function ajax_link(){
+    link = this.href;
+    return open_ajax_link(link);
 }
 
 $(function(){
@@ -75,6 +79,7 @@ $(function(){
 $(document).ready(function() {
     $('#menu').html(_.template($("#template").html())(data));
     $(".ieie").click(ajax_link);
+    $("#login_button").click(ajax_link);
 });
 
 
