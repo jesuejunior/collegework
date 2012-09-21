@@ -80,6 +80,7 @@ $(document).ready(function() {
     $('#menu').html(_.template($("#template").html())(data));
     $(".ieie").click(ajax_link);
     $("#login_button").click(ajax_link);
+    $("#subscribe_button").click(ajax_link);
 });
 
 
