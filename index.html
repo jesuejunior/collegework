@@ -11,58 +11,61 @@
 <body>
 
 <header id="six_header">
-<div class="container">
-    <div>
+    <div id="header-top" class="container">
+
+
+        <a href="/" id="logo" title="Six Games"></a>
+        <form id="header_search" action="" class="search">
+            <input id="six_header_search_bar" type="text" placeholder="Digite o nome do jogo" name="q" autocomplete="off" />
+            <button class="btn btn-warning btn-large">BUSCAR</button>
+        </form>
+
         <div class="user_line">
             <ul>
-                <li><a href="#subscribe" id="subscribe_button" class="btn btn-success">Cadastre-se</a></li>
+                <li><a href="#subscribe" id="subscribe_button" class="btn btn-primary">Cadastre-se</a></li>
                 <li class="last">
-                    <a href="#login" id="login_button" class="btn btn-success">Login</a>
+                    <a href="#login" id="login_button" class="btn btn-primary">Login</a>
                 </li>
             </ul>
         </div>
-    </div>
-</div>
-<div>
-    <div class="page-header">
-        <div>
-            <a href="/" id="sixgames" title="Six Games"></a>
-        </div>
-        <div>
-            <form id="six_header_search" action="" class="search">
-                <input id="six_header_search_bar" type="text" placeholder="Digite o nome do jogo" name="q" autocomplete="off" />
-                <button class="btn btn-danger">BUSCAR</button>
-            </form>
-        </div>
-    </div>
-</div>
 
-<nav id="menu"></nav>
-<script type="text/template" id="template">
-    <ul class="meio">
-    <% _.each(listas, function(lista) { %>
+        <div class="clear"></div>
+    </div>
 
-        <li><a href="#" title="<%= lista.nome %>"><%= lista.nome %></a>
-            <ul>
-            <% _.each(lista.items, function(item, index, list) { %>
-                <li <% if(index == list.length-1) { print ("class='last'"); } %> ><a href="<%= item.link %>" class="ieie" title="<%= item.nome %>"><%= item.nome %></a></li>
+    <nav id="menu"></nav>
+
+    <script type="text/template" id="template">
+        <div class="container">
+            <ul class="meio">
+            <% _.each(listas, function(lista) { %>
+
+                <li><a href="#" title="<%= lista.nome %>"><%= lista.nome %></a>
+                    <ul>
+                    <% _.each(lista.items, function(item, index, list) { %>
+                        <li <% if(index == list.length-1) { print ("class='last'"); } %> ><a href="<%= item.link %>" class="ieie" title="<%= item.nome %>"><%= item.nome %></a></li>
+                    <% }); %>
+                    </ul>
+                </li>
             <% }); %>
             </ul>
-        </li>
-    <% }); %>
-    </ul>
-</script>
+        </div>
+    </script>
 
 </header>
 <div id="content">
+    <div class="container categories-content">
 
+    </div>
 
 
 </div>
 
 
 <footer>
-    Contato
+     <div class="container">
+         <a>Contato</a>
+     </div>
+
 </footer>
 </body>
 </html>

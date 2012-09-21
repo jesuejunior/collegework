@@ -59,20 +59,27 @@ $(function(){
 ]};
 
 
-$('#menu').html(_.template($("#template").html())(data));
 
-$(".ieie").click(function() {
-    link = this.href;
-    $.get(link, function(data){
-        $("#content").html(data);
-    });
-    return false;
-    });
+$(document).ready(function() {
+    $('#menu').html(_.template($("#template").html())(data));
 
-$("ul li ul").hide();
-$("ul li").hover(function(){
-    $(this).find("ul:first").slideDown("slow");
+    $(".ieie").click(function() {
+        link = this.href;
+        $.get(link, function(data){
+            $("#content .container").html(data);
+        });
+        return false;
+    });
+    /*
+
+    $("ul li ul").hide();
+    $("ul li").hover(function(){
+        $(this).find("ul:first").slideDown("fast");
     }, function(){
-    $(this).find("ul:first").fadeOut("slow");
-    });
+        $(this).find("ul:first").fadeOut("slow");
+    }); */
+
+});
+
+
 })
