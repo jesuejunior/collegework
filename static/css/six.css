@@ -408,7 +408,57 @@ ul.meio{
 
 
 
-/* Magia */
+
+/* Relacionato a resgitro e login */
+
+.auth-block {
+    width: 300px;
+    margin: 0 auto;
+}
+.auth-block form {
+    background: #fff;
+    padding: 30px 50px;
+
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.auth-block h1 { margin-bottom: 20px; }
+
+.auth-block label {font-size: 14px;}
+
+button.blue-btn { float: right; padding: 4px 8px; margin:10px 0 0 0; }
+
+/* relacionando ao feedback */
+
+.feedback {
+    font-weight: bold;
+    margin: 0 auto 30px;
+    padding: 8px 10px;
+
+
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.feedback.error {
+    background: #FFD1D1;
+    border: 1px solid #F2B3B3;
+}
+
+.feedback.success {
+    background: #D4FFD1;
+    border: 1px solid #ACE2A7;
+}
+
+
+/* Magia do menu */
 /* CSS3 */
 
 
