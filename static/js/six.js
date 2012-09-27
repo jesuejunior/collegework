@@ -30,7 +30,7 @@ $(function(){
                     {nome: "Luta",     link : 'ps3/luta.html'},
                     {nome: "RPG",      link : 'ps3/rpg.html'},
                     {nome: "Esportes", link : 'ps3/esportes.html'},
-                    {nome: "Todos", link : 'content/todos_jogos.html'}
+                    {nome: "Todos",    link : 'ps3/todos_jogos.html'}
 ]
 },
             {
@@ -43,7 +43,7 @@ $(function(){
                     {nome: "Luta",     link : 'xbox_360/luta.html'},
                     {nome: "RPG",      link : 'xbox_360/rpg.html'},
                     {nome: "Esportes", link : 'xbox_360/esportes.html'},
-                    {nome: "Todos", link : 'content/todos_jogos.html'}
+                    {nome: "Todos",    link : 'xbox_360/todos_jogos.html'}
 ]
 },
             {
@@ -56,7 +56,7 @@ $(function(){
                     {nome: "Luta",     link : 'wii/luta.html'},
                     {nome: "RPG",      link : 'wii/rpg.html'},
                     {nome: "Esportes", link : 'wii/esportes.html'},
-                    {nome: "Todos", link : 'content/todos_jogos.html'}
+                    {nome: "Todos",    link : 'wiitodos_jogos.html'}
 ]
 },
             {
@@ -69,11 +69,10 @@ $(function(){
                     {nome: "Luta",     link : 'pc/luta.html'},
                     {nome: "RPG",      link : 'pc/rpg.html'},
                     {nome: "Esportes", link : 'pc/esportes.html'},
-                    {nome: "Todos", link : 'content/todos_jogos.html'}
+                    {nome: "Todos",    link : 'pc/todos_jogos.html'}
 ]
 }
 ]};
-
 
 
 $(document).ready(function() {
@@ -81,6 +80,7 @@ $(document).ready(function() {
     $(".ieie").click(ajax_link);
     $("#login_button").click(ajax_link);
     $("#subscribe_button").click(ajax_link);
+
 });
 
 

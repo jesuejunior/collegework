@@ -392,9 +392,10 @@ header {
     border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
+
 .imageRow .single {
     float: left;
-    margin: auto 29px;
+    margin: auto 24px;
 }
 
 .six_games_list .game .six_title {
@@ -402,18 +403,34 @@ header {
     font-size: 18px;
     height: 46px;
 }
+
+.six_title img {
+    max-width: 85%;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+li.six_title{
+    width: 33%;
+    display: block;
+}
+
 .six_title {
     color: #00A6FF;
     font-family: 'Ubuntu',Arial,sans-serif;
     font-weight: 300;
     margin: 0;
     float:left;
+    list-style: none;
 }
 
-.six_title li { list-style: none; }
+
+
 
 .six_games_list .game:hover {
     color: white;
+    float: left;
 }
 
 ul.meio{
