@@ -18,6 +18,50 @@ function ajax_link(){
     return open_ajax_link(link);
 }
 
+function check_date(DATA) {
+    var expReg = /^(([0-2]\d|[3][0-1])\/([0]\d|[1][0-2])\/[1-2][0-9]\d{2})$/;
+    var msgErro = 'Formato inválido de data.';
+    var vdt = new Date();
+    var vdia = vdt.getDay();
+    var vmes = vdt.getMonth();
+    var vano = vdt.getYear();
+    if ((DATA.value.match(expReg)) && (DATA.value!='')){
+        var dia = DATA.value.substring(0,2);
+        var mes = DATA.value.substring(3,5);
+        var ano = DATA.value.substring(6,10);
+        if((mes==04 && dia > 30) || (mes==06 && dia > 30) || (mes==09 && dia > 30) || (mes==11 && dia > 30)){
+            alert("Dia incorreto !!! O mês especificado contém no máximo 30 dias.");
+            DATA.focus();
+            return false;
+        } else{
+            if(ano%4!=0 && mes==2 && dia>28){
+                alert("Data incorreta!! O mês especificado contém no máximo 28 dias.");
+                DATA.focus();
+                return false;
+            } else{
+                if(ano%4==0 && mes==2 && dia>29){
+                    alert("Data incorreta!! O mês especificado contém no máximo 29 dias.");
+                    DATA.focus();
+                    return false;
+                } else{
+                    if (ano > vano) {
+                        alert("Data incorreta!! Ano informado maior que ano atual.");
+                        DATA.focus();
+                        return false;
+                    }else{
+                        //alert ("Data correta!");
+                        return true;
+                    }
+                }
+            }
+        }
+    } else {
+        alert(msgErro);
+        DATA.focus();
+        return false;
+    }
+}
+
 $(function(){
     var data = { listas : [
     {
