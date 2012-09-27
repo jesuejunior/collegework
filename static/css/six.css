@@ -414,14 +414,17 @@ header {
 li.six_title{
     width: 33%;
     display: block;
+    float: left;
+    margin-top: 10px;
 }
+
+
 
 .six_title {
     color: #00A6FF;
     font-family: 'Ubuntu',Arial,sans-serif;
     font-weight: 300;
     margin: 0;
-    float:left;
     list-style: none;
 }
 .game .btn {
@@ -550,7 +553,7 @@ ul.meio{
     background: #191919;
     border: 1px solid #141414;
     padding: 25px 30px;
-    width: 259px;
+    width: 320px;
 
     border-radius: 5px;
     -moz-border-radius: 5px;
@@ -570,7 +573,7 @@ ul.meio{
     color: #fff;
     display: block;
     padding: 6px 8px;
-    width: 241px;
+    width: 302px;
 
     border: 1px solid #141414;
     outline: 0;
@@ -583,10 +586,14 @@ ul.meio{
 .form-row { margin-bottom: 10px; }
 
 textarea {
-    background: #191919;
+    background: #222;
+    color: #fff;
+    display: block;
+    padding: 6px 8px;
+    width: 302px;
+
     border: 1px solid #141414;
-    padding: 25px 30px;
-    width: 259px;
+    outline: 0;
 
     border-radius: 5px;
     -moz-border-radius: 5px;
