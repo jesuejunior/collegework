@@ -378,6 +378,44 @@ header {
 
 .search input:focus { border: 1px solid #FBB450; }
 
+/* CSS para as imagens  */
+.imageRow {
+    margin: 20px 0;
+}
+
+.imageRow .single a img {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.imageRow .single {
+    float: left;
+    margin: auto 29px;
+}
+
+.six_games_list .game .six_title {
+    display: block;
+    font-size: 18px;
+    height: 46px;
+}
+.six_title {
+    color: #00A6FF;
+    font-family: 'Ubuntu',Arial,sans-serif;
+    font-weight: 300;
+    margin: 0;
+    float:left;
+}
+
+.six_title li { list-style: none; }
+
+.six_games_list .game:hover {
+    color: white;
+}
+
 ul.meio{
 }
 .container {
