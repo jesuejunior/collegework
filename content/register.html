@@ -9,7 +9,7 @@
 
     <h1>Cadastrar Usuario</h1>
 
-    <form action="{% url register-view %}" method="post">
+    <form action="/register" method="post">
 
         <div class="form-row">
             <label for="nome">Nome:</label>
@@ -18,17 +18,17 @@
 
         <div class="form-row">
             <label for="nascimento">Data de Nascimento:</label>
-            <input onblur="check_date(this)" required type="date" name="nascimento" id="nascimento"/>
+            <input onblur="check_date(this)" required type="text" name="nascimento" id="nascimento"/>
         </div>
 
         <div class="form-row">
             <label for="endereco">Endereco:</label>
-            <input required type="endereco" name="endereco" id="endereco"/>
+            <input required name="endereco" id="endereco"/>
         </div>
 
         <div class="form-row">
             <label for="email">E-mail:</label>
-            <input required type="email" name="email" id="email"/>
+            <input onblur="check_mail(this)" required type="email" name="email" id="email"/>
         </div>
 
         <div class="form-row">
@@ -41,7 +41,7 @@
             <input required type="password" name="confirm-password" id="confirm-password"/>
         </div>
 
-        <button type="submit" name="submit" class="btn btn-primary">Done!</button>
+        <button type="submit" name="submit" class="btn btn-success">Registar!</button>
         <div class="clear"></div>
     </form>
 
