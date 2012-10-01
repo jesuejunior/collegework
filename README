@@ -1,0 +1,7 @@
+Repositorio para guardar os trabalhos e execicios da faculdade e estudos.
+
+A cada branch será um trabalho ou conjunto de exercicios de determinada linguagem.
+
+Ex:
+    socktserver = Servidor HTTP(Socket) escrito em Java e Cliente escrito em C
+    sixgames = Site de ecommerce feito somente com javascript, CSS e HTML como avaliação
