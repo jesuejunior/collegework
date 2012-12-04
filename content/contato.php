@@ -6,12 +6,12 @@
 
         <div class="form-row">
             <label for="nome">Nome:</label>
-            <input required type="nome" name="nome" id="nome"/>
+            <input required type="text" name="nome" id="nome" class="check_nome"/>
         </div>
 
         <div class="form-row">
-            <label for="username">Email:</label>
-            <input required="" type="email" name="username" id="username">
+            <label for="email">Email:</label>
+            <input required="" type="email" name="email" id="email" class="check-mail">
         </div>
 
         <div class="form-row">

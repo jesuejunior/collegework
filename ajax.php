@@ -1,8 +1,11 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: jesuejunior
- * Date: 11/22/12
- * Time: 1:07 AM
- * To change this template use File | Settings | File Templates.
- */
+include 'db/db_controller.php';
+
+$func = $_GET['func'];
+
+$response = call_user_func_array($func, $_POST);
+
+header('Content-Type: application/json');
+echo json_encode($response);
+
+?>

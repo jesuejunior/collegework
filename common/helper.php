@@ -9,5 +9,11 @@ function valida_data($data)
     return true;
 }
 
+function converte_data($data)
+{
+    if(valida_data($data)) {
+        return implode(!strstr($data, '/') ? "/" : "-", array_reverse(explode(!strstr($data, '/') ? "-" : "/", $data)));
+    }
+}
 
 ?>

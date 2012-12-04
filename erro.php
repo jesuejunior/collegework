@@ -3,7 +3,7 @@
 
 <?php
 
-    echo "Cliente cadastrado com sucesso!";
+    echo "Ocorreu um erro inesperado";
 
 ?>
     </body>
